@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Authorized } from "./Authorized"
 import { Login } from "../pages/Login.jsx"
@@ -29,6 +29,7 @@ export const ApplicationViews = () => {
         setRocksState(rocks)
     }
 
+    useEffect(() => {fetchRocksFromAPI()}, [])
     return <BrowserRouter>
         <Routes>
             <Route path="/login" element={<Login />} />
